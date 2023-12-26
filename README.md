@@ -14,7 +14,7 @@ Welcome to the learning-C repository! This my personal repository used to learn 
 
 - [Introduction to Algorithms (Book)](https://www.amazon.com/Introduction-Algorithms-fourth-Thomas-Cormen/dp/026204630X/)
 
-- [Advanced Algorithms and Data Structures](https://www.amazon.com/Advanced-Algorithms-Structures-Marcello-Rocca/dp/1617295485/)
+- [Advanced Algorithms and Data Structures (Book)](https://www.amazon.com/Advanced-Algorithms-Structures-Marcello-Rocca/dp/1617295485/)
 
 - [Data Structures - Full Course Using C and C++ (Youtube)](https://youtu.be/B31LgI4Y4DQ?si=aXi_C5d5j_-6nyYO)
 
