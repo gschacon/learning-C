@@ -28,6 +28,19 @@ struct IntNode* reverseLinkedList(struct IntNode* head) {
   return head;
 }
 
+struct IntNode* reverseListRecursive(struct IntNode* current, struct IntNode* prev) {
+    if (current == NULL) {
+        return prev;
+    }
+    struct IntNode* nextNode = current->next;
+    current->next = prev;
+    return reverseListRecursive(nextNode, current);
+}
+
+struct IntNode* reverseLinkedListRecursiveWrapper(struct IntNode* head) {
+    return reverseListRecursive(head, NULL);
+}
+
 int main() {
   struct IntNode* head = NULL;
 
@@ -43,6 +56,10 @@ int main() {
   printIntList(head);
 
   head = reverseLinkedList(head);
+
+  printIntList(head);
+
+  head = reverseLinkedListRecursiveWrapper(head);
 
   printIntList(head);
 
