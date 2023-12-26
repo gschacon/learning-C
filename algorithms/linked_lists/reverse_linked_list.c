@@ -46,5 +46,7 @@ int main() {
 
   printIntList(head);
 
+  freeIntList(head);
+
   return 0;
 }
