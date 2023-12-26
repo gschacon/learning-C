@@ -28,24 +28,6 @@ struct IntNode* reverseLinkedList(struct IntNode* head) {
   return head;
 }
 
-struct IntNode* reverseLinkedList2(struct IntNode* head) {
-  struct IntNode* previousNode2 = NULL;
-  struct IntNode* currentNode2 = head;
-  struct IntNode* nextNode2;
-
-  while (currentNode2 != NULL) {
-    nextNode2 = currentNode2->next;
-    currentNode2->next = previousNode2;
-    previousNode2 = currentNode2;
-    currentNode2 = nextNode2;
-  }
-
-  head = previousNode2;
-
-  return head;
-
-}
-
 int main() {
   struct IntNode* head = NULL;
 
@@ -60,7 +42,7 @@ int main() {
 
   printIntList(head);
 
-  head = reverseLinkedList2(head);
+  head = reverseLinkedList(head);
 
   printIntList(head);
 
