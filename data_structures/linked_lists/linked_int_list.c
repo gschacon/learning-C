@@ -124,6 +124,21 @@ void printIntList(struct IntNode* head) {
   printf("NULL\n");
 }
 
+void printIntListWithRecursion(struct IntNode* head) {
+  if (head == NULL)  {
+    printf("NULL\n");
+    return;
+  }
+  printf("%d -> ", head->value);
+  printIntListWithRecursion(head->next);
+}
+
+void printReverseIntList(struct IntNode* head) {
+  if (head == NULL)  return;
+  printReverseIntList(head->next);
+  printf("%d ", head->value);
+}
+
 void freeIntList(struct IntNode* head) {
   struct IntNode* current = head;
   struct IntNode* nextNode;
@@ -140,6 +155,8 @@ int main() {
 
   printIntList(head);
 
+  head = insertIntAtBeginning(head, 5);
+  head = insertIntAtBeginning(head, 4);
   head = insertIntAtBeginning(head, 3);
   head = insertIntAtBeginning(head, 2);
   head = insertIntAtBeginning(head, 1);
@@ -163,6 +180,10 @@ int main() {
   updateIntValue(head, 8, 1);
 
   printIntList(head);
+
+  printIntListWithRecursion(head);
+
+  printReverseIntList(head);
 
   freeIntList(head);
 
