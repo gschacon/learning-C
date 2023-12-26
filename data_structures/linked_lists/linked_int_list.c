@@ -9,7 +9,7 @@ struct IntNode {
 struct IntNode* createIntNode(int data) {
   struct IntNode* newNode = (struct IntNode*)malloc(sizeof(struct IntNode));
   if (newNode == NULL) {
-    printf("Memory allocation failed\n");
+    printf("Memory allocation failed.\n");
     exit(EXIT_FAILURE);
   }
 
