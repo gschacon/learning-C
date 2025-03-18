@@ -3,11 +3,12 @@
 
 struct DoubleNode {
   double value;
-  struct DoubleNode* next;
+  struct DoubleNode *next;
 };
 
-struct DoubleNode* createDoubleNode(double data) {
-  struct DoubleNode* newNode = (struct DoubleNode*)malloc(sizeof(struct DoubleNode));
+struct DoubleNode *createDoubleNode(double data) {
+  struct DoubleNode *newNode =
+      (struct DoubleNode *)malloc(sizeof(struct DoubleNode));
   if (newNode == NULL) {
     printf("Memory allocation failed.\n");
     exit(EXIT_FAILURE);
@@ -16,24 +17,25 @@ struct DoubleNode* createDoubleNode(double data) {
   newNode->value = data;
   newNode->next = NULL;
   return newNode;
-
 }
-struct DoubleNode* insertDoubleAtBeginning(struct DoubleNode* head, double data) {
-  struct DoubleNode* newNode = createDoubleNode(data);
+struct DoubleNode *insertDoubleAtBeginning(struct DoubleNode *head,
+                                           double data) {
+  struct DoubleNode *newNode = createDoubleNode(data);
   newNode->next = head;
   return newNode;
 }
 
-struct DoubleNode* insertDoubleAnywhere(struct DoubleNode* head, double data, size_t position) {
+struct DoubleNode *insertDoubleAnywhere(struct DoubleNode *head, double data,
+                                        size_t position) {
   if (position == 0) {
     return insertDoubleAtBeginning(head, data);
   }
 
-  struct DoubleNode* newNode = createDoubleNode(data);
-  struct DoubleNode* current = head;
+  struct DoubleNode *newNode = createDoubleNode(data);
+  struct DoubleNode *current = head;
   size_t currentPosition = 0;
 
-  while (current != NULL && currentPosition < position-1) {
+  while (current != NULL && currentPosition < position - 1) {
     current = current->next;
     currentPosition++;
   }
@@ -49,7 +51,7 @@ struct DoubleNode* insertDoubleAnywhere(struct DoubleNode* head, double data, si
   return head;
 }
 
-struct DoubleNode* removeDoubleNode(struct DoubleNode* head, size_t position) {
+struct DoubleNode *removeDoubleNode(struct DoubleNode *head, size_t position) {
   if (position < 0) {
     printf("Invalid position for removal.\n");
     return head;
@@ -59,8 +61,8 @@ struct DoubleNode* removeDoubleNode(struct DoubleNode* head, size_t position) {
     printf("List is empty.\n");
   }
 
-  struct DoubleNode* current = head;
-  struct DoubleNode* previous = NULL;
+  struct DoubleNode *current = head;
+  struct DoubleNode *previous = NULL;
   size_t currentPosition = 0;
 
   while (current != NULL && currentPosition < position) {
@@ -76,27 +78,26 @@ struct DoubleNode* removeDoubleNode(struct DoubleNode* head, size_t position) {
 
   if (previous == NULL) {
     head = current->next;
-  }
-  else {
+  } else {
     previous->next = current->next;
   }
 
   free(current);
 
   return head;
-
 }
 
-void updateDoubleValue(struct DoubleNode* head, double newValue, size_t position) {
+void updateDoubleValue(struct DoubleNode *head, double newValue,
+                       size_t position) {
   if (position < 0) {
     printf("Invalid position for update.\n");
     return;
   }
 
-  struct DoubleNode* current = head;
+  struct DoubleNode *current = head;
   size_t newPosition = 0;
 
-  while (current !=NULL && newPosition < position) {
+  while (current != NULL && newPosition < position) {
     current = current->next;
     newPosition++;
   }
@@ -109,8 +110,8 @@ void updateDoubleValue(struct DoubleNode* head, double newValue, size_t position
   current->value = newValue;
 }
 
-void printDoubleList(struct DoubleNode* head) {
-  struct DoubleNode* current = head;
+void printDoubleList(struct DoubleNode *head) {
+  struct DoubleNode *current = head;
   while (current != NULL) {
     printf("%f -> ", current->value);
     current = current->next;
@@ -118,9 +119,9 @@ void printDoubleList(struct DoubleNode* head) {
   printf("NULL\n");
 }
 
-void freeDoubleList(struct DoubleNode* head) {
-  struct DoubleNode* current = head;
-  struct DoubleNode* nextNode;
+void freeDoubleList(struct DoubleNode *head) {
+  struct DoubleNode *current = head;
+  struct DoubleNode *nextNode;
   while (current != NULL) {
     nextNode = current->next;
     free(current);
@@ -129,7 +130,7 @@ void freeDoubleList(struct DoubleNode* head) {
 }
 
 int main() {
-  struct DoubleNode* head = NULL;
+  struct DoubleNode *head = NULL;
 
   printDoubleList(head);
 
